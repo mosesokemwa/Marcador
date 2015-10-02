@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.shortcuts import get_obbject_or_404, redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .models import Bookmark
 
