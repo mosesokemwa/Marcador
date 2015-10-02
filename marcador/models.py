@@ -21,7 +21,7 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-#model manager for this model
+#model manager
 class PublicBookmarkManager(mmodels.Managaer):
     def get_queryset(self):
         qs = super(PublicBookmarkManager, self).get_queryset()
@@ -41,8 +41,10 @@ class Bookmark(models.Model):
                     related_name='bookmarks')
     tags = models.ManyToManyField(Tag, blank=True)
 
+    #model manager
     objects = models.Manager()
     public = PublicBookmarkManager()
+
     #metadata set to singular and plural
     class Meta:
         verbose_name = 'bookmark'
