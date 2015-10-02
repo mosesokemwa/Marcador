@@ -22,7 +22,7 @@ class Tag(models.Model):
         return self.name
 
 #model manager
-class PublicBookmarkManager(models.Managaer):
+class PublicBookmarkManager(models.Manager):
     def get_queryset(self):
         qs = super(PublicBookmarkManager, self).get_queryset()
         return qs.filter(is_public=True)
@@ -32,7 +32,7 @@ class PublicBookmarkManager(models.Managaer):
 #class fields
 class Bookmark(models.Model):
     url = models.URLField()
-    title = models.Model.CharField('title', max_length=255)
+    title = models.CharField('title', max_length=255)
     description = models.TextField('description', blank=True)
     is_public = models.BooleanField('public', default=True)
     date_created = models.DateTimeField('date_created')
