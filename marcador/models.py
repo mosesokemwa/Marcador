@@ -22,7 +22,7 @@ class Tag(models.Model):
         return self.name
 
 #model manager
-class PublicBookmarkManager(mmodels.Managaer):
+class PublicBookmarkManager(models.Managaer):
     def get_queryset(self):
         qs = super(PublicBookmarkManager, self).get_queryset()
         return qs.filter(is_public=True)
