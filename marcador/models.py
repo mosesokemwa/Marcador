@@ -41,6 +41,8 @@ class Bookmark(models.Model):
                     related_name='bookmarks')
     tags = models.ManyToManyField(Tag, blank=True)
 
+    objects = models.Manager()
+    public = PublicBookmarkManager()
     #metadata set to singular and plural
     class Meta:
         verbose_name = 'bookmark'
@@ -50,7 +52,7 @@ class Bookmark(models.Model):
     #model functionality methods
     def  __str__ (self):
         return '%s (%s)'  % (self.title, self.url)
-        
+
     #model functionality methods
     def save(self, *args, **kwargs):
         if not self.id:
