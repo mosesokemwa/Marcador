@@ -7,7 +7,8 @@ from django.utils.timezone import now
 
 
 
-@python_2_unicode_compatible
+@python_2_unicode_compatible #model functionality methods
+#class fields
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)
 
@@ -16,10 +17,19 @@ class Tag(models.Model):
         verbose_name_plural = 'tags'
         ordering = ['name']
 
+    #model functionality methods
     def __str__(self):
         return self.name
 
-@python_2_unicode_compatible
+#model manager for this model
+class PublicBookmarkManager(mmodels.Managaer):
+    def get_queryset(self):
+        qs = super(PublicBookmarkManager, self).get_queryset()
+        return qs.filter(is_public=True)
+
+
+@python_2_unicode_compatible #model functionality methods
+#class fields
 class Bookmark(models.Model):
     url = models.URLField()
     title = models.Model.CharField('title', max_length=255)
@@ -31,14 +41,17 @@ class Bookmark(models.Model):
                     related_name='bookmarks')
     tags = models.ManyToManyField(Tag, blank=True)
 
+    #metadata set to singular and plural
     class Meta:
         verbose_name = 'bookmark'
         verbose_name_plural = 'bookmarks'
         ordering = ['-date_created']
 
+    #model functionality methods
     def  __str__ (self):
         return '%s (%s)'  % (self.title, self.url)
-
+        
+    #model functionality methods
     def save(self, *args, **kwargs):
         if not self.id:
             self.date_created = now()
