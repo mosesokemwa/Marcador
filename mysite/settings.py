@@ -38,7 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'marcador',
-#	'crispy_forms',
+	'crispy_forms',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -110,10 +110,11 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+
+#configuring crispy_forms
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
 #configuration of automatic redirect after login and logout
 LOGIN_URL = 'mysite_login'
 LOGOUT_URL = 'mysite_logout'
 LOGIN_REDIRECT_URL = 'marcador_bookmark_list'
-
-#configuring crispy_forms
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
