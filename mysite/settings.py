@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qdhx(py8kd*k55d#-lu6y+)s=ji^!p^q8r(@+4q+qmc5t6onxi'
+SECRET_KEY = '_6jodcq0v6sa(j!=fwdsz)_3-fqrh5iakqxl!ibh2evvf0rbsj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'marcador',
+    'marcador',
+#	'crispy_forms',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], #added this
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,7 +81,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}
+} #removed 'DIR':[]
+
 
 
 # Internationalization
@@ -88,7 +90,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'GMT'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -102,6 +104,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+#added this
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+#configuration of automatic redirect after login and logout
+LOGIN_URL = 'mysite_login'
+LOGOUT_URL = 'mysite_logout'
+LOGIN_REDIRECT_URL = 'marcador_bookmark_list'
+
+#configuring crispy_forms
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
