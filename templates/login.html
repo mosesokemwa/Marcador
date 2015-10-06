@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Login{% endblock %}
+
+{% block toggle_login %}{% endblock %}
+
+{% block heading %}
+  <h2>Login</h2>
+{% endblock %}
+
+
+
+<!--initialied a form-->
+{% block content %}
+  <form action="{% url "mysite_login" %}" method="post" accept-charset="utf-8"><!--sends a POST request to login view-->
+    {{ form|crispy }}
+    {% csrf_token %}<!-- used to activate Django’s protection against manipulated form requests Cross Site Request Forgery-->
+    <input type="hidden" name="next" value="{{ next }}">
+    <input class="btn btn-default" type="submit" value="Login">
+  </form>
+{% endblock %}
