@@ -37,8 +37,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'marcador',
 	'crispy_forms',
+=======
+    'marcador'
+>>>>>>> b13cbb0db4ca8e0d6810ffcb15b01665d68d4abc
 )
 
 MIDDLEWARE_CLASSES = (
@@ -109,6 +113,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+<<<<<<< HEAD
 
 
 #configuring crispy_forms
@@ -118,3 +123,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 LOGIN_URL = 'mysite_login'
 LOGOUT_URL = 'mysite_logout'
 LOGIN_REDIRECT_URL = 'marcador_bookmark_list'
+=======
+>>>>>>> b13cbb0db4ca8e0d6810ffcb15b01665d68d4abc

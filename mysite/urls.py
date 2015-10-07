@@ -15,14 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+<<<<<<< HEAD
 from django.core.urlresolvers import reverse_lazy
+=======
+>>>>>>> b13cbb0db4ca8e0d6810ffcb15b01665d68d4abc
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 	url(r'^', include('marcador.urls')) #path to urls.py in marcador folder
+<<<<<<< HEAD
 #login, logout infor in base.html
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'},
         name='mysite_login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout',
         {'next_page': reverse_lazy('marcador_bookmark_list')}, name='mysite_logout'),
+=======
+>>>>>>> b13cbb0db4ca8e0d6810ffcb15b01665d68d4abc
 ]

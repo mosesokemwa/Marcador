@@ -3,6 +3,7 @@
 {% block title %}Latest bookmarks{% endblock %}
 
 {% block heading %}
+<<<<<<< HEAD
   <h2>Latest bookmarks</h2>
 {% endblock %}
 
@@ -15,3 +16,18 @@
   {% endfor %}
   </ul>
 {% endblock %}
+=======
+	<h2>Latest bookmarks</h2>
+{% endblock %}
+
+{% block content %}
+<ul class="list-unstyled">
+	{% for bookmark in bookmarks %}
+	<li class="well well-sm">{% include "marcador/bookmark.html" %}</li>
+	{% empty %}
+	<li>No bookmarks. :</li>
+	{% endfor %}
+</ul>
+{% endblock %}
+
+>>>>>>> b13cbb0db4ca8e0d6810ffcb15b01665d68d4abc

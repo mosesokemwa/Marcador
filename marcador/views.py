@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import BookmarkForm
+=======
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404, redirect, render
+
+>>>>>>> b13cbb0db4ca8e0d6810ffcb15b01665d68d4abc
 from .models import Bookmark
 
 #creating path from urls in marcador
@@ -21,6 +27,7 @@ def bookmark_user(request, username):
 		bookmarks = Bookmark.public.filter(owner__username=username)
 	context = {'bookmarks': bookmarks, 'owner': user}
 	return render(request, 'marcador/bookmark_user.html', context)
+<<<<<<< HEAD
 
 #prevents users from spoofing bookmarks on other users account
 #by making sure that the view is only accessible
@@ -58,3 +65,5 @@ def bookmark_edit(request, pk):
         form = BookmarkForm(instance=bookmark)
     context = {'form': form, 'create': False}
     return render(request, 'marcador/form.html', context)
+=======
+>>>>>>> b13cbb0db4ca8e0d6810ffcb15b01665d68d4abc
