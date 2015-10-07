@@ -20,13 +20,7 @@ from django.core.urlresolvers import reverse_lazy
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 	url(r'^', include('marcador.urls')) #path to urls.py in marcador folder
-]
-
-
-	#login, logout infor in base.html
-urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('marcador.urls')),
+#login, logout infor in base.html
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'},
         name='mysite_login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout',
